@@ -23,7 +23,7 @@ class App extends React.Component {
   render(){
       return(
       <div style ={{textAlign: "center", height: '100vh'}}>
-        <form onSubmit = {this.handleOnSubmit} style={{display: 'inline-block', marginTop: '50vh'}}>
+        <form onSubmit = {this.handleOnSubmit} style={{marginTop: '50vh'}}>
           <input type = 'text' name = 'content' value = {this.state.content} onChange = {this.handleOnChange}/>
           <input type = 'submit' disabled ={this.state.content.length > 0 ? false:true}/>
           <h2>Remaining Characters: {this.state.charLimit - this.state.content.length}</h2>
