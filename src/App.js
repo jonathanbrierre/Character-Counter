@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    content: '',
+    charLimit: 50
+  }
+
+  handleOnChange = (e) => {
+    this.setState({[e.target.name]:e.target.value})
+  }
+
+  render(){
+      return(
+      <div>
+        <form>
+          <input type = 'text' name = 'content' value = {this.state.content} onChange = {this.handleOnChange}/>
+          <h2>Remaining Characters: {this.state.charLimit - this.state.content.length}</h2>
+        </form>
+      </div>
+      );
+  }
 }
 
 export default App;
